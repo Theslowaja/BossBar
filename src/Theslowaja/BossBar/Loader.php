@@ -7,9 +7,11 @@ use libs\xenialdan\apibossbar\DiverseBossBar;
 
 class Loader extends PluginBase implements Listener {
 
+    private BossBar $bossBar;
+
     public function onEnable() : void{
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
-        $this->BossBar = new BossBar();
+        $this->bossBar = new BossBar();
     }
 
     public function onJoin(PlayerJoinEvent $event){
