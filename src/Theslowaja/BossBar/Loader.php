@@ -7,7 +7,7 @@ use libs\xenialdan\apibossbar\DiverseBossBar;
 
 class Loader extends PluginBase implements Listener {
 
-    public function onEnable () : void{
+    public function onEnable() : void{
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         $this->config = new Config($this->getDataFolder() . DIRECTORY_SEPARATOR . "config.yml", Config::YAML);
         $this->BossBar = new BossBar();
@@ -16,8 +16,8 @@ class Loader extends PluginBase implements Listener {
     public function onJoin(PlayerJoinEvent $event){
         $p = $event->getPlayer();
         $this->bossBar->setPercentage($this->config->get("percentage"));
-        $this->bossBar->setTitle(str_replace("&", "§", $thid->config->get("Top-Title"));
-        $this->bossBar->setSubTitle(str_replace("&", "§", $thid->config->get("Sub-Title"));
+        $this->bossBar->setTitle(str_replace("&", "§", $this->config->get("Top-Title")));
+        $this->bossBar->setSubTitle(str_replace("&", "§", $this->config->get("Sub-Title")));
         $this->bossBar->addPlayer($p);
     }
 
