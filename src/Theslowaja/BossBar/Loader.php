@@ -16,8 +16,8 @@ class Loader extends PluginBase implements Listener {
     public function onJoin(PlayerJoinEvent $event){
         $p = $event->getPlayer();
         $this->bossBar->setPercentage($this->config->get("percentage"));
-        $this->bossBar->setTitle(str_replace("&", "§", $thid->config->get("Top-Title");
-        $this->bossBar->setSubTitle(str_replace("&", "§", $thid->config->get("Top-Title");
+        $this->bossBar->setTitle(str_replace("&", "§", $thid->config->get("Top-Title"));
+        $this->bossBar->setSubTitle(str_replace("&", "§", $thid->config->get("Sub-Title"));
         $this->bossBar->addPlayer($p);
     }
 
