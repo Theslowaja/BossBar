@@ -4,6 +4,7 @@ namespace Theslowaja\BossBar;
 
 use pocketmine\{Server, player\Player, plugin\PluginBase, event\Listener, event\player\PlayerJoinEvent, event\player\PlayerQuitEvent, utils\Config};
 use libs\xenialdan\apibossbar\DiverseBossBar;
+use libs\xenialdan\apibossbar\BossBar;
 
 class Loader extends PluginBase implements Listener {
 
