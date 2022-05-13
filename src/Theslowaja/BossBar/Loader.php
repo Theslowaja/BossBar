@@ -12,6 +12,7 @@ class Loader extends PluginBase implements Listener {
 
     public function onEnable() : void{
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
+        $this->saveResource("config.yml");
         $this->bossBar = new BossBar();
     }
 
