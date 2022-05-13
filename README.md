@@ -10,6 +10,8 @@ features to be added:
 2. Show TPS Server
 3. bossbar color
 
+depend: https://github.com/sky-min/bossbarapi/tree/main/
+
 # how to use
 
 1. Install the plugin to the plugins folder
