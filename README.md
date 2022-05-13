@@ -1,6 +1,15 @@
 # BossBar
 showing the BossBar to the player
 
+# feature
+shows your server name or whatever you wrote in config
+
+features to be added:
+
+1. Show Ping Player
+2. Show TPS Server
+3. bossbar color
+
 # how to use
 
 1. Install the plugin to the plugins folder
@@ -9,4 +18,4 @@ showing the BossBar to the player
 4. Fill in the top title Data Title below as you wish
 5. Start the server 
 
-
+# 
