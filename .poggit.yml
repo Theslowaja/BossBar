@@ -5,5 +5,8 @@ branches:
 projects:
   BossBar:
     path: ""
-    virion: "apibossbar"
+    libs:
+      - src: thebigsmileXD/apibossbar/apibossbar
+        version: ^0.1.5
+        branch: PM4
 ...
