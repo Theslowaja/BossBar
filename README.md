@@ -1,16 +1,9 @@
 # BossBar
-showing the BossBar to the player
+A plugin that can show changing messages in the EnderDragon/Wither boss bar.
+
 
 # feature
 shows your server name or whatever you wrote in config
-
-features to be added:
-
-1. Show Ping Player
-2. Show TPS Server
-3. bossbar color
-
-depend: https://github.com/sky-min/bossbarapi/tree/main/
 
 # how to use
 
@@ -20,4 +13,6 @@ depend: https://github.com/sky-min/bossbarapi/tree/main/
 4. Fill in the top title Data Title below as you wish
 5. Start the server 
 
-# 
+# information
+
+This plugin uses the [apibossbar](https://github.com/thebigsmileXD/apibossbar) virion
