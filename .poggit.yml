@@ -6,7 +6,7 @@ projects:
   BossBar:
     path: ""
     libs:
-      - src: thebigsmileXD/apibossbar/apibossbar
+      - src: RevandDev/apibossbar/apibossbar
         version: ^0.1.5
         branch: PM4
 ...
