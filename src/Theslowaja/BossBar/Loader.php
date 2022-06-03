@@ -51,7 +51,7 @@ class Loader extends PluginBase implements Listener {
                 $color = 5;
                 break;
              case "white":
-                $color = 6
+                $color = 6;
                 break;
              default:
                 $color = 0;
