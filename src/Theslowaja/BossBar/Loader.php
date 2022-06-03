@@ -14,6 +14,7 @@ class Loader extends PluginBase implements Listener {
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         $this->saveResource("config.yml");
         $this->bossBar = new BossBar();
+        $this->updateColor($this->getConfig()->get("color"));
     }
 
     public function onJoin(PlayerJoinEvent $event){
@@ -27,5 +28,35 @@ class Loader extends PluginBase implements Listener {
     public function quit(PlayerQuitEvent $ev){
         $p = $ev->getPlayer();
         $this->bossBar->removePlayer($p);
+    }
+    
+    public function updateColor($color){
+        switch(strtolower($color)){
+             case "pink":
+                $color = 0;
+                break;
+             case "blue":
+                $color = 1;
+                break;
+             case "red":
+                $color = 2;
+                break;
+             case "green":
+                $color = 3;
+                break;
+             case "yellow":
+                $color = 4;
+                break;
+             case "purple":
+                $color = 5;
+                break;
+             case "white":
+                $color = 6
+                break;
+             default:
+                $color = 0;
+                break;
+        }
+        $this->bossBar->setColor($color);
     }
 }
