@@ -9,4 +9,5 @@ projects:
       - src: BladeNetwork-MC/apibossbar/apibossbar
         version: ^0.1.5
         branch: PM4
+        
 ...
