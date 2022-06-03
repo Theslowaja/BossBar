@@ -6,7 +6,7 @@ projects:
   BossBar:
     path: ""
     libs:
-      - src: RevandDev/apibossbar/apibossbar
+      - src: BladeNetwork-MC/apibossbar/apibossbar
         version: ^0.1.5
         branch: PM4
 ...
