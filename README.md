@@ -3,6 +3,7 @@ A Plugin that can show changing messages in the EnderDragon/Wither boss bar.
 
 
 # feature
+
 • Shows your server name or whatever you wrote in config
 • Customize bossbar color in config
 
