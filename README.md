@@ -16,4 +16,4 @@ A Plugin that can show changing messages in the EnderDragon/Wither boss bar.
 
 # information
 
-This plugin uses the [apibossbar](https://github.com/thebigsmileXD/apibossbar) virion
+This plugin uses the [apibossbar](https://poggit.pmmp.io/ci/BladeNetwork-MC/apibossbar/~/dev:3) virion
