@@ -3,10 +3,12 @@
 namespace BossBar\task;
 
 use pocketmine\scheduler\Task;
+use pocketmine\player\Player;
+use Theslowaja\BossBar\Loader;
 
 class BossBarTask extends Task{
 
-    private Loader $plugin;
+    private Loader $pl;
     private $count;
 
     public function __construct(Loader $pl, Player $p){
