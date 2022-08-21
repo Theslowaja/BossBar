@@ -34,7 +34,7 @@ class Loader extends PluginBase implements Listener {
         $this->bossBar->removePlayer($p);
     }
 
-    public function sendBossBar(string $title, string $sub, int $persen){
+    public function sendBossBar(string $title = "", string $sub = "", int $persen = 100){
         foreach($this->getServer()->getOnlinePlayers() as $player){
             $this->bossBar->setPercentage($persen / 100);
             $this->bossBar->setTitle($title);
