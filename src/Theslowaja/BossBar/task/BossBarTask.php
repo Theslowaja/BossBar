@@ -9,12 +9,10 @@ use Theslowaja\BossBar\Loader;
 class BossBarTask extends Task{
 
     private Loader $pl;
-    private Player $player;
     private $count;
 
-    public function __construct(Loader $pl, Player $p){
+    public function __construct(Loader $pl){
         $this->pl = $pl;
-        $this->player = $p;
         $this->count = 0;
     }
 
@@ -24,7 +22,7 @@ class BossBarTask extends Task{
                 $sub = str_replace("&", "§", $this->pl->getConfig()->getAll()["BossBar"]["Sub-Title"]);
     		back:
     		if($this->count < count($top)){
-    	    		$this->pl->sendBossBar($this->player, $top[$this->count], $sub[$this->count], $persen);
+    	    		$this->pl->sendBossBar($top[$this->count], $sub[$this->count], $persen);
     	    		$this->count++;
     		}else{
 		    	$this->count = 0;
