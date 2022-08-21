@@ -6,6 +6,8 @@ use pocketmine\{Server, player\Player, plugin\PluginBase, event\Listener, event\
 use xenialdan\apibossbar\DiverseBossBar;
 use xenialdan\apibossbar\BossBar;
 
+use Theslowaja\BossBar\task\BossBarTask;
+
 class Loader extends PluginBase implements Listener {
 
     private BossBar $bossBar;
