@@ -1,10 +1,12 @@
 percentage: 100
-
 color: "PINK" #PINK/BLUE/RED/GREEN/YELLOW/PURPLE/WHITE
-
 # use & to get colors
-
-Top-Title: "Theslowaja Bossbar"
-
-Sub-Title: ""
+BossBar:
+  delay: 60
+  Top-Title:
+    - "Theslowaja BossBar"
+    - "SimpleBossBar"
+    - "Survival Server"
+  Sub-Title:
+    -
 
