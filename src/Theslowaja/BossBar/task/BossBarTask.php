@@ -7,7 +7,7 @@ use Theslowaja\BossBar\Loader;
 
 class BossBarTask extends Task{
 
-    private Loader $pl;
+    private Loader $plugun;
 
     private $count;
 
