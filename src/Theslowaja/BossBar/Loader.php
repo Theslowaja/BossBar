@@ -15,16 +15,17 @@ class Loader extends PluginBase implements Listener {
         $this->saveResource("config.yml");
         $this->bossBar = new BossBar();
         $this->updateColor($this->getConfig()->get("color"));
+        $this->getScheduler()->scheduleRepeatingTask(new BossBarTask($this), 20 * $this->getConfig()->getAll()["BossBar"]["delay"]);
     }
 
-    public function onJoin(PlayerJoinEvent $event){
+    /**public function onJoin(PlayerJoinEvent $event){
         $p = $event->getPlayer();
         $this->bossBar->setPercentage($this->getConfig()->get("percentage") / 100);
         $this->bossBar->setTitle(str_replace("&", "§", $this->getConfig()->get("Top-Title")));
         $this->bossBar->setSubTitle(str_replace("&", "§", $this->getConfig()->get("Sub-Title")));
         $this->bossBar->addPlayer($p);
         $this->getScheduler()->scheduleRepeatingTask(new BossBarTask($this), 20 * $this->getConfig()->getAll()["BossBar"]["delay"]);
-    }
+    }**/
 
     public function quit(PlayerQuitEvent $ev){
         $p = $ev->getPlayer();
