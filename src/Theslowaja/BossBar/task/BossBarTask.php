@@ -1,6 +1,6 @@
 <?php
 
-namespace BossBar\task;
+namespace Theslowaja\BossBar\task;
 
 use pocketmine\scheduler\Task;
 use pocketmine\player\Player;
