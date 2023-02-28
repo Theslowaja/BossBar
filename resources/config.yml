@@ -2,11 +2,19 @@ percentage: 100
 color: "PINK" #PINK/BLUE/RED/GREEN/YELLOW/PURPLE/WHITE
 # use & to get colors
 BossBar:
-  delay: 60
-  Top-Title:
-    - "Theslowaja BossBar"
-    - "SimpleBossBar"
-    - "Survival Server"
-  Sub-Title:
-    -
+  world:
+    Top-Title:
+    - "&aTheslowaja Geming"
+    Sub-Title:
+    - "Theslowaja Bossbar V1.2"
+  default:
+    Top-Title:
+    - "&cheslowaja Geming"
+    Sub-Title:
+    - "Theslowaja Bossbar V1.2"
+   
+disabled-world:
+  - "Survival"
+  -"Your Disabled World"
+  
 
