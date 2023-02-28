@@ -6,8 +6,6 @@ use pocketmine\{Server, player\Player, plugin\PluginBase, event\Listener, event\
 use xenialdan\apibossbar\DiverseBossBar;
 use xenialdan\apibossbar\BossBar;
 
-use Theslowaja\BossBar\task\BossBarTask;
-
 class Loader extends PluginBase implements Listener {
 
     private BossBar $bossBar;
@@ -25,7 +23,6 @@ class Loader extends PluginBase implements Listener {
         $this->bossBar->setTitle(str_replace("&", "§", $this->getConfig()->get("Top-Title")));
         $this->bossBar->setSubTitle(str_replace("&", "§", $this->getConfig()->get("Sub-Title")));
         $this->bossBar->addPlayer($p);
-        $this->getScheduler()->scheduleRepeatingTask(new BossBarTask($this), 20 * $this->getConfig()->getAll()["BossBar"]["delay"]);
     }
 
     public function quit(PlayerQuitEvent $ev){
