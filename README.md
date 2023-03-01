@@ -14,7 +14,3 @@ A Plugin that can show changing messages in the EnderDragon/Wither boss bar.
 3. Open the data plugin then go to "BossBar" and open Config.yml
 4. Fill in the top title Data Title below as you wish
 5. Start the server 
-
-# information
-
-This plugin uses the [apibossbar](https://poggit.pmmp.io/ci/BladeNetwork-MC/apibossbar/~/dev:3) virion
