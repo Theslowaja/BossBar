@@ -6,8 +6,8 @@ projects:
   BossBar:
     path: ""
     libs:
-      - src: BladeNetwork-MC/apibossbar/apibossbar
+      - src: thebigsmileXD/apibossbar/apibossbar
         version: ^0.1.5
-        branch: PM4
+        branch: feature/color
 
 ...
