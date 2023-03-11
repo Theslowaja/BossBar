@@ -1,3 +1,5 @@
+EnableJoinBossbar: true
+
 percentage: 100
 
 color: "PINK" #PINK/BLUE/RED/GREEN/YELLOW/PURPLE/WHITE
