@@ -19,7 +19,7 @@ class Loader extends PluginBase implements Listener {
 
     public function onJoin(PlayerJoinEvent $event){
         $p = $event->getPlayer();
-        if($this->getConfig()->get("EnableJoinBossbar" == true){
+        if($this->getConfig()->get("EnableJoinBossbar") == true){
             $this->bossBar->addPlayer($p);
         }
     }
