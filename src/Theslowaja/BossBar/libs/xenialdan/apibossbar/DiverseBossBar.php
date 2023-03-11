@@ -1,6 +1,6 @@
 <?php
 
-namespace Theslowaja\Bossbar\libs\xenialdan\apibossbar;
+namespace Theslowaja\BossBar\libs\xenialdan\apibossbar;
 
 use pocketmine\entity\Attribute;
 use pocketmine\entity\AttributeMap;
