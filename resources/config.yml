@@ -1,20 +1,9 @@
 percentage: 100
-color: "PINK" #PINK/BLUE/RED/GREEN/YELLOW/PURPLE/WHITE
-# use & to get colors
-BossBar:
-  world:
-    Top-Title:
-    - "&aTheslowaja Geming"
-    Sub-Title:
-    - "Theslowaja Bossbar V1.2"
-  default:
-    Top-Title:
-    - "&cheslowaja Geming"
-    Sub-Title:
-    - "Theslowaja Bossbar V1.2"
-   
-disabled-world:
-  - "Survival"
-  -"Your Disabled World"
-  
 
+color: "PINK" #PINK/BLUE/RED/GREEN/YELLOW/PURPLE/WHITE
+
+# use & to get colors
+
+Top-Title: "Theslowaja Bossbar"
+
+Sub-Title: ""
