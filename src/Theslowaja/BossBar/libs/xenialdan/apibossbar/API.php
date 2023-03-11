@@ -1,6 +1,6 @@
 <?php
 
-namespace xenialdan\apibossbar;
+namespace Theslowaja\Bossbar\libs\xenialdan\apibossbar;
 
 use pocketmine\plugin\Plugin;
 
