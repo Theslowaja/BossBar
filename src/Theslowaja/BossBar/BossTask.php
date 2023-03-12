@@ -18,7 +18,8 @@ class BossTask extends Task {
         $pl = $this->plugin;
         $cfg = $pl->getConfig()->getAll();
         $bb = $pl->bossBar;
-        foreach($pl->enabledPlayer  as $player){
+        foreach($pl->enabledPlayer as $player){
+            $player = $pl->getServer()->getPlayerByPrefix($player);
             if(isset($cfg["bossBar"][$player->getWorld()->getFolderName()])){
                 $world = $player->getWorld()->getFolderName();
                 if($pl->bossProcess["title"][$player->getName()] >= count($cfg["bossBar"][$world]["title"])-1){
