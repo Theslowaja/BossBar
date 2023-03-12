@@ -62,7 +62,7 @@ class Loader extends PluginBase implements Listener {
     public function updateColor($color){
         //Minimalize Line
         $colordata = ["pink" => 0, "blue" => 1, "red" => 2, "green" => 3, "yellow" => 4, "purple" => 5, "white" => 6];
-        if(isset($colordata[$color])){
+        if(isset($colordata[strtolower($color)])){
             $this->bossBar->setColor($colordata[$color]);
             return;
         }
