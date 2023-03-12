@@ -26,12 +26,14 @@ class BossTask extends Task {
                     $pl->bossProcess["title"][$player->getName()]  = 0;
                     $bb->setTitleFor([$player], $cfg["bossBar"][$world]["title"][0]);
                 } else {
+                    $pl->bossProcess["title"][$player->getName()] = $pl->bossProcess["title"][$player->getName()] + 1;
                     $bb->setTitleFor([$player], $cfg["bossBar"][$world]["title"][$pl->bossProcess["title"][$player->getName()]]);
                 }
                 if($pl->bossProcess["sub-title"][$player->getName()] >= count($cfg["bossBar"][$world]["sub-title"])-1){
                     $pl->bossProcess["sub-title"][$player->getName()]  = 0;
                     $bb->setSubTitleFor([$player], $cfg["bossBar"][$world]["sub-title"][0]);
                 } else {
+                    $pl->bossProcess["sub-title"][$player->getName()] = $pl->bossProcess["sub-title"][$player->getName()] + 1;
                     $bb->setSubTitleFor([$player], $cfg["bossBar"][$world]["sub-title"][$pl->bossProcess["sub-title"][$player->getName()]]);
                 }
                 $bb->setPercentageFor([$player], $cfg["bossBar"][$world]["percentage"]);
@@ -40,6 +42,7 @@ class BossTask extends Task {
                     $pl->bossProcess["title"][$player->getName()]  = 0;
                     $bb->setTitleFor([$player], $cfg["bossBar"]["default"]["title"][0]);
                 } else {
+                    $pl->bossProcess["title"][$player->getName()] = $pl->bossProcess["title"][$player->getName()] + 1;
                     $bb->setTitleFor([$player], $cfg["bossBar"]["default"]["title"][$pl->bossProcess["title"][$player->getName()]]);
                 }
                 if($pl->bossProcess["sub-title"][$player->getName()] === count($cfg["bossBar"]["default"]["sub-title"])-1){
