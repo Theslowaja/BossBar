@@ -1,11 +1,32 @@
-EnableJoinBossbar: true
+# VERSION: 1.3
+# Coded By Theslowaja & RevXZ
 
-percentage: 100
+# Task Delay (In Seconds)
+task-delay: 5 #Seconds
 
-color: "PINK" #PINK/BLUE/RED/GREEN/YELLOW/PURPLE/WHITE
+# BossBar Color
+# Available Color: pink, blue, red, green, yellow, purple, white
+color: pink
 
-# use & to get colors
+# BossBar Main Configuration
+bossBar:
+  survival: #World Name
+    title:
+      - "Welcome To Survival"
+      - "ServerMC"
+    sub-title:
+      - "play.servermc.net"
+      - "www.servermc.net"
+    percentage: 100
+  default: #Default Configuration
+    title:
+      - "Welcome To Server"
+      - "ServerMC"
+    sub-title:
+      - "play.servermc.net"
+      - "www.servermc.net"
+    percentage: 100
 
-Top-Title: "Theslowaja Bossbar"
-
-Sub-Title: ""
+disabled-world:
+  - "world_disabled_1"
+  - "world_disabled_2"
