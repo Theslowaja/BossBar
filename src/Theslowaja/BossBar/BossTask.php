@@ -48,7 +48,7 @@ class BossTask extends Task {
                 } else {
                     $bb->setSubTitleFor([$player], $cfg["bossBar"]["default"]["sub-title"][$pl->bossProcess["sub-title"][$player->getName()]]);
                 }
-                $bb->setPercentageFor([$player], $cfg["bossBar"]["edefault"]["percentage"]);
+                $bb->setPercentageFor([$player], $cfg["bossBar"]["default"]["percentage"]);
             }
         }
     }
