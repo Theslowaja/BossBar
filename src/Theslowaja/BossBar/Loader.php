@@ -27,7 +27,7 @@ class Loader extends PluginBase implements Listener {
             }
         }
         $this->bossBar->addPlayer($player);
-        $this->enabledPlayer[] = $player;
+        $this->enabledPlayer[] = $player->getName();
         $this->bossProcess["title"][$player->getName()] = 0;
         $this->bossProcess["sub-title"][$player->getName()] = 0;
     }
@@ -47,14 +47,13 @@ class Loader extends PluginBase implements Listener {
                 return;
             }
         }
-        $this->enabledPlayer[] = $player;
         $this->bossProcess["title"][$player->getName()] = 0;
         $this->bossProcess["sub-title"][$player->getName()] = 0;
     }
 
     public function quit(PlayerQuitEvent $ev){
         $player = $ev->getPlayer();
-        unset($this->enabledPlayer[$player]);
+        unset($this->enabledPlayer[$player->getName()]);
         unset($this->bossProcess["title"][$player->getName()]);
         unset($this->bossProcess["sub-title"][$player->getName()]);
         $this->bossBar->removePlayer($player);
