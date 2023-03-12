@@ -2,71 +2,71 @@
 
 namespace Theslowaja\BossBar;
 
-use pocketmine\{Server, player\Player, plugin\PluginBase, event\Listener, event\player\PlayerJoinEvent, event\player\PlayerQuitEvent, utils\Config};
-use Theslowaja\BossBar\libs\xenialdan\apibossbar\DiverseBossBar;
-use Theslowaja\BossBar\libs\xenialdan\apibossbar\BossBar;
+use pocketmine\{Server, player\Player, plugin\PluginBase, event\Listener, event\player\PlayerJoinEvent, event\player\PlayerQuitEvent, event\entity\EntityTeleportEvent};
+use xenialdan\apibossbar\DiverseBossBar;
 
 class Loader extends PluginBase implements Listener {
 
-    private BossBar $bossBar;
+    public DiverseBossBar $bossBar;
+    public array $enabledPlayer;
+    public array $bossProcess;
 
     public function onEnable() : void{
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         $this->saveResource("config.yml");
-        $this->bossBar = new BossBar();
+        $this->bossBar = new DiverseBossBar();
         $this->updateColor($this->getConfig()->get("color"));
+        $this->getScheduler()->scheduleRepeatingTask(new BossTask($this), $this->getConfig()->get("task-delay") * 20);
     }
 
     public function onJoin(PlayerJoinEvent $event){
-        $p = $event->getPlayer();
-        if($this->getConfig()->get("EnableJoinBossbar") == true){
-            $this->addBossbar($p);;
+        $player = $event->getPlayer();
+        foreach($this->getConfig()->get("disabled-world") as $wname){
+            if($wname === $player->getWorld()->getFolderName()){
+                return;
+            }
         }
+        $this->bossBar->addPlayer($player);
+        $this->enabledPlayer[] = $player;
+        $this->bossProcess["title"][$player->getName()] = 0;
+        $this->bossProcess["sub-title"][$player->getName()] = 0;
     }
-    
-    public function addBossbar(Player $p){
-        $this->bossBar->setPercentage($this->getConfig()->get("percentage") / 100);
-        $this->bossBar->setTitle(str_replace("&", "§", $this->getConfig()->get("Top-Title")));
-        $this->bossBar->setSubTitle(str_replace("&", "§", $this->getConfig()->get("Sub-Title")));
-        $this->bossBar->addPlayer($p);
+
+    public function onWorldChange(EntityTeleportEvent $event){
+        $entity = $event->getEntity();
+        if(!$entity instanceof Player){
+            return;
+        }
+        $player = $entity;
+        foreach($this->getConfig()->get("disabled-world") as $wname){
+            if($wname === $player->getWorld()->getFolderName()){
+                unset($this->enabledPlayer[$player]);
+                unset($this->bossProcess["title"][$player->getName()]);
+                unset($this->bossProcess["sub-title"][$player->getName()]);
+                $this->bossBar->removePlayer($player);
+                return;
+            }
+        }
+        $this->enabledPlayer[] = $player;
+        $this->bossProcess["title"][$player->getName()] = 0;
+        $this->bossProcess["sub-title"][$player->getName()] = 0;
     }
 
     public function quit(PlayerQuitEvent $ev){
-        $p = $ev->getPlayer();
-        $this->bossBar->removePlayer($p);
-    }
-
-    public function removeBossBar(Player $player){
+        $player = $ev->getPlayer();
+        unset($this->enabledPlayer[$player]);
+        unset($this->bossProcess["title"][$player->getName()]);
+        unset($this->bossProcess["sub-title"][$player->getName()]);
         $this->bossBar->removePlayer($player);
     }
     
     public function updateColor($color){
-        switch(strtolower($color)){
-             case "pink":
-                $color = 0;
-                break; 
-             case "blue":
-                $color = 1;
-                break;
-             case "red":
-                $color = 2;
-                break;
-             case "green":
-                $color = 3;
-                break;
-             case "yellow":
-                $color = 4;
-                break;
-             case "purple":
-                $color = 5;
-                break;
-             case "white":
-                $color = 6;
-                break;
-             default:
-                $color = 0;
-                break;
+        //Minimalize Line
+        $colordata = ["pink" => 0, "blue" => 1, "red" => 2, "green" => 3, "yellow" => 4, "purple" => 5, "white" => 6];
+        if(isset($colordata[$color])){
+            $this->bossBar->setColor($colordata[$color]);
+            return;
         }
-        $this->bossBar->setColor($color);
+        $this->bossBar->setColor(0);
     }
 }
