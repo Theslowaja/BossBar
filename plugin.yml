@@ -1,5 +1,5 @@
 name: BossBar
-author: Theslowaja
+authors: ["Theslowaja", "RevXZ"]
 main: Theslowaja\BossBar\Loader
 version: 1.3
 api: 4.0.0
