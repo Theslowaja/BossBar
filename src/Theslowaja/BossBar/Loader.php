@@ -8,8 +8,8 @@ use xenialdan\apibossbar\DiverseBossBar;
 class Loader extends PluginBase implements Listener {
 
     public DiverseBossBar $bossBar;
-    public array $enabledPlayer;
-    public array $bossProcess;
+    public array $enabledPlayer = [];
+    public array $bossProcess = [];
 
     public function onEnable() : void{
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
