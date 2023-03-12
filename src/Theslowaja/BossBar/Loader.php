@@ -20,11 +20,11 @@ class Loader extends PluginBase implements Listener {
     public function onJoin(PlayerJoinEvent $event){
         $p = $event->getPlayer();
         if($this->getConfig()->get("EnableJoinBossbar") == true){
-            $this->bossBar->addPlayer($p);
+            $this->addBossbar($p);;
         }
     }
     
-    public function addBossbar(Player $p, $title, $sub){
+    public function addBossbar(Player $p){
         $this->bossBar->setPercentage($this->getConfig()->get("percentage") / 100);
         $this->bossBar->setTitle(str_replace("&", "§", $this->getConfig()->get("Top-Title")));
         $this->bossBar->setSubTitle(str_replace("&", "§", $this->getConfig()->get("Sub-Title")));
