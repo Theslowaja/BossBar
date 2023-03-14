@@ -20,7 +20,9 @@ class BossTask extends Task {
         $bb = $pl->bossBar;
         foreach($pl->enabledPlayer as $player){
             $player = $pl->getServer()->getPlayerByPrefix($player);
-            if(isset($cfg["bossBar"][$player->getWorld()->getFolderName()])){
+            if(!$player instanceof Player){
+                //Player Not Found
+            } elseif(isset($cfg["bossBar"][$player->getWorld()->getFolderName()])){
                 $world = $player->getWorld()->getFolderName();
                 if($pl->bossProcess["title"][$player->getName()] >= count($cfg["bossBar"][$world]["title"])-1){
                     $pl->bossProcess["title"][$player->getName()]  = 0;
