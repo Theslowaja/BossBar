@@ -3,6 +3,7 @@
 namespace Theslowaja\BossBar;
 
 use pocketmine\scheduler\Task;
+use pocketmine\player\Player;
 
 class BossTask extends Task {
 
