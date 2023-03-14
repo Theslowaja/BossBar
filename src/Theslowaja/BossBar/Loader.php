@@ -12,6 +12,10 @@ class Loader extends PluginBase implements Listener {
     public array $bossProcess = [];
 
     public function onEnable() : void{
+        if(!class_exists(DiverseBossBar::class)){
+            $this->getLogger()->critical("Class DiverseBossBar Not Found, Please Install From Poggit");
+            $this->getServer()->getPluginManager()->disablePlugin($this);
+        }
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         $this->saveResource("config.yml");
         $this->bossBar = new DiverseBossBar();
