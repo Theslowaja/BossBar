@@ -44,7 +44,7 @@ class Loader extends PluginBase implements Listener {
         $player = $entity;
         foreach($this->getConfig()->get("disabled-world") as $wname){
             if($wname === $player->getWorld()->getFolderName()){
-                unset($this->enabledPlayer[$player->getName()]);
+                $this->disablePlayer($player->getName());
                 unset($this->bossProcess["title"][$player->getName()]);
                 unset($this->bossProcess["sub-title"][$player->getName()]);
                 $this->bossBar->removePlayer($player);
@@ -57,7 +57,7 @@ class Loader extends PluginBase implements Listener {
 
     public function quit(PlayerQuitEvent $ev){
         $player = $ev->getPlayer();
-        unset($this->enabledPlayer[$player->getName()]);
+        $this->disablePlayer($player->getName());
         unset($this->bossProcess["title"][$player->getName()]);
         unset($this->bossProcess["sub-title"][$player->getName()]);
         $this->bossBar->removePlayer($player);
@@ -72,4 +72,13 @@ class Loader extends PluginBase implements Listener {
         }
         $this->bossBar->setColor(0);
     }
+    
+    public function disablePlayer($name){
+        $i = 0;
+        foreach($this->enabledPlayer as $n){
+            if($n === $name){
+                unset($this->enabledPlayer[$i]);
+            }
+            $i++;
+        }
 }
