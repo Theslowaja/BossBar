@@ -5,14 +5,16 @@ namespace Theslowaja\BossBar;
 use pocketmine\{Server, player\Player, plugin\PluginBase, event\Listener, event\player\PlayerJoinEvent, event\player\PlayerQuitEvent, event\entity\EntityTeleportEvent};
 use xenialdan\apibossbar\DiverseBossBar;
 
-class Loader extends PluginBase implements Listener {
+class Loader extends PluginBase implements Listener
+{
 
     public DiverseBossBar $bossBar;
     public array $enabledPlayer = [];
     public array $bossProcess = [];
 
-    public function onEnable() : void{
-        if(!class_exists(DiverseBossBar::class)){
+    public function onEnable(): void
+    {
+        if (!class_exists(DiverseBossBar::class)) {
             $this->getLogger()->critical("Class DiverseBossBar Not Found, Please Install From Poggit");
             $this->getServer()->getPluginManager()->disablePlugin($this);
         }
@@ -23,10 +25,11 @@ class Loader extends PluginBase implements Listener {
         $this->getScheduler()->scheduleRepeatingTask(new BossTask($this), $this->getConfig()->get("task-delay") * 20);
     }
 
-    public function onJoin(PlayerJoinEvent $event){
+    public function onJoin(PlayerJoinEvent $event)
+    {
         $player = $event->getPlayer();
-        foreach($this->getConfig()->get("disabled-world") as $wname){
-            if($wname === $player->getWorld()->getFolderName()){
+        foreach ($this->getConfig()->get("disabled-world") as $wname) {
+            if ($wname === $player->getWorld()->getFolderName()) {
                 return;
             }
         }
@@ -36,47 +39,50 @@ class Loader extends PluginBase implements Listener {
         $this->bossProcess["sub-title"][$player->getName()] = 0;
     }
 
-    public function onWorldChange(EntityTeleportEvent $event){
+    public function onWorldChange(EntityTeleportEvent $event)
+    {
         $entity = $event->getEntity();
-        if(!$entity instanceof Player){
+        if (!$entity instanceof Player) {
             return;
         }
         $player = $entity;
-        foreach($this->getConfig()->get("disabled-world") as $wname){
-            if($wname === $player->getWorld()->getFolderName()){
-                $this->disablePlayer($player->getName());
-                unset($this->bossProcess["title"][$player->getName()]);
-                unset($this->bossProcess["sub-title"][$player->getName()]);
-                $this->bossBar->removePlayer($player);
-                return;
-            }
+        $wname = $this->getConfig()->get("disabled-world");
+        if (in_array($event->getTo()->getWorld()->getFolderName(),$wname)) {
+            $this->disablePlayer($player->getName());
+            unset($this->bossProcess["title"][$player->getName()]);
+            unset($this->bossProcess["sub-title"][$player->getName()]);
+            $this->bossBar->removePlayer($player);
+            return;
         }
         $this->bossProcess["title"][$player->getName()] = 0;
         $this->bossProcess["sub-title"][$player->getName()] = 0;
     }
 
-    public function quit(PlayerQuitEvent $ev){
+    public function quit(PlayerQuitEvent $ev)
+    {
         $player = $ev->getPlayer();
         $this->disablePlayer($player->getName());
         unset($this->bossProcess["title"][$player->getName()]);
         unset($this->bossProcess["sub-title"][$player->getName()]);
         $this->bossBar->removePlayer($player);
     }
-    
-    public function updateColor($color){
+
+    public function updateColor($color)
+    {
         //Minimalize Line
         $colordata = ["pink" => 0, "blue" => 1, "red" => 2, "green" => 3, "yellow" => 4, "purple" => 5, "white" => 6];
-        if(isset($colordata[strtolower($color)])){
+        if (isset($colordata[strtolower($color)])) {
             $this->bossBar->setColor($colordata[$color]);
             return;
         }
         $this->bossBar->setColor(0);
     }
-    
-    public function disablePlayer($name){
+
+    public function disablePlayer($name)
+    {
         $i = 0;
-        foreach($this->enabledPlayer as $n){
-            if($n === $name){
+        foreach ($this->enabledPlayer as $n) {
+            if ($n === $name) {
                 unset($this->enabledPlayer[$i]);
             }
             $i++;
