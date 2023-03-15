@@ -54,6 +54,7 @@ class Loader extends PluginBase implements Listener
             $this->bossBar->removePlayer($player);
             return;
         }
+        $this->bossBar->addPlayer($player);
         $this->bossProcess["title"][$player->getName()] = 0;
         $this->bossProcess["sub-title"][$player->getName()] = 0;
     }
