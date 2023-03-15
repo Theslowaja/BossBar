@@ -81,4 +81,5 @@ class Loader extends PluginBase implements Listener {
             }
             $i++;
         }
+    }
 }
