@@ -80,12 +80,6 @@ class Loader extends PluginBase implements Listener
 
     public function disablePlayer($name)
     {
-        $i = 0;
-        foreach ($this->enabledPlayer as $n) {
-            if ($n === $name) {
-                unset($this->enabledPlayer[$i]);
-            }
-            $i++;
-        }
+        unset($this->enabledPlayer[array_search($name,$this->enabledPlayer)]);
     }
 }
